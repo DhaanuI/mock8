@@ -27,7 +27,7 @@ orderRoute.post("/", async (req, res) => {
 // GET ALL ORDERS ( along with populated users and restaurants - ref made between order models and all the other 2 models)
 orderRoute.get("/", async (req, res) => {
     try {
-        let data = await OrderModel.findOne().populate('user restaurant')
+        let data = await OrderModel.find().populate('user restaurant')
         res.status(200).send({ "Orders": data })
     }
     catch (err) {
